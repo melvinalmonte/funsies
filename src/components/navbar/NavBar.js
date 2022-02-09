@@ -2,22 +2,13 @@ import React from 'react';
 
 import {
   chakra,
-  Box,
   Flex,
   useColorModeValue,
   VisuallyHidden,
-  HStack,
-  Button,
-  useDisclosure,
-  VStack,
-  IconButton,
-  CloseButton,
 } from '@chakra-ui/react';
-import { AiOutlineMenu } from 'react-icons/ai';
 
 export default function NavBar() {
   const bg = useColorModeValue('white', 'gray.800');
-  const mobileNav = useDisclosure();
 
   return (
     <chakra.header bg={bg} w="full" px={{ base: 2, sm: 4 }} py={4} shadow="md">
