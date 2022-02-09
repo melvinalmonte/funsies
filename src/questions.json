@@ -1,0 +1,68 @@
+[
+  {
+    "question": "Which food do you like the most?",
+    "key": "question1",
+    "answers": [
+      {
+        "answer": "Steak",
+        "animal-type": "dog"
+      },
+      {
+        "answer": "Fish",
+        "animal-type": "cat"
+      },
+      {
+        "answer": "Carrots",
+        "animal-type": "rabbit"
+      },
+      {
+        "answer": "Corn",
+        "animal-type": "turtle"
+      }
+    ]
+  },
+  {
+    "question": "Which activities do you enjoy?",
+    "key": "question2",
+    "answers": [
+      {
+        "answer": "Swimming",
+        "animal-type": "turtle"
+      },
+      {
+        "answer": "Sleeping",
+        "animal-type": "cat"
+      },
+      {
+        "answer": "Cuddling",
+        "animal-type": "rabbit"
+      },
+      {
+        "answer": "Eating",
+        "animal-type": "dog"
+      }
+    ]
+  },
+  {
+    "question": "How much do you enjoy car rides?",
+    "key": "question3",
+    "answers": [
+      {
+        "answer": "I dislike them",
+        "animal-type": "cat"
+      },
+      {
+        "answer": "I get a little nervous",
+        "animal-type": "rabbit"
+      },
+      {
+        "answer": "I barely notice",
+        "animal-type": "turtle"
+      },
+      {
+        "answer": "I love them",
+        "animal-type": "dog"
+      }
+    ]
+  }
+]
