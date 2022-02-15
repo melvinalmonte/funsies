@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   ChakraProvider,
+  extendTheme,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -13,7 +14,7 @@ import {
   RadioGroup,
   Stack,
   Text,
-  theme,
+  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
 import { Navbar } from './components/navbar';
@@ -21,6 +22,7 @@ import questions from './questions.json';
 import { Form, Formik } from 'formik';
 import RadioInput from './RadioInput';
 import confetti from 'canvas-confetti';
+import { mode } from '@chakra-ui/theme-tools';
 
 function getDuplicates(data) {
   let dups = data.filter(
@@ -36,7 +38,25 @@ function getDuplicates(data) {
   }
 }
 
+const theme = extendTheme({
+  styles: {
+    global: props => ({
+      body: {
+        bg: mode('#BB6464', 'gray.800')(props),
+        color: mode('#C8F2EF', '#CDB699')(props),
+      },
+      ModalContent: {
+        bg: mode('#BB6464', 'gray.800')(props),
+        color: mode('#C8F2EF', '#CDB699')(props),
+      },
+    }),
+  },
+});
+
 function App() {
+  const bg = useColorModeValue('#CDB699', 'gray.800');
+  const modalBG = useColorModeValue('#BB6464', 'gray.800');
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [result, setResult] = React.useState('');
 
@@ -60,7 +80,6 @@ function App() {
           onSubmit={formValues => {
             const valueList = Object.values(formValues);
             onOpen();
-            console.log(getDuplicates(valueList));
             setResult(getDuplicates(valueList));
           }}
         >
@@ -94,6 +113,8 @@ function App() {
                 ))}
                 <Box>
                   <Button
+                    bg={bg}
+                    color={'white'}
                     type={'submit'}
                     onClick={() => {
                       for (let i = 0; i < 5; i++) {
@@ -118,7 +139,7 @@ function App() {
         </Formik>
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent >
             <ModalHeader>Your personality result:</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
@@ -131,7 +152,7 @@ function App() {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
+              <Button bg={bg} color={'white'} mr={3} onClick={onClose}>
                 Close
               </Button>
             </ModalFooter>
